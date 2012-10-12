@@ -74,8 +74,6 @@ ISR(USART_RX_vect)
 {
 	int next;
 
-	PORTB |= 0x02;
-
 	cli();
 	next = (rs485_rx.write + 1)%rs485_rx.size;
 	rs485_rx.buf[rs485_rx.write] = UDR0;
